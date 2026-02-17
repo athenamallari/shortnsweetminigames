@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>short & sweet minigames !</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: url("https://raw.githubusercontent.com/athenamallari/shortnsweetminigames/refs/heads/main/Add%20a%20heading%20(1).png") no-repeat center center/cover;
+        font-family: 'Fredoka', sans-serif;
+        overflow: hidden;
+    }
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 240, 245, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 70px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        animation: fadeIn 1.5s ease forwards;
+        opacity: 0;
+    }
+
+    .top-row,
+    .bottom-row {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        padding: 15px 50px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #91c9f9;
+        background: white;
+        border: 3px solid #cbe2fa;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        letter-spacing: 1px;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: #f3f0ff;
+        box-shadow: 0 0 15px #ffc0cb, 0 0 25px #ffb6c1;
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+    @keyframes fadeIn {
+        to { opacity: 1; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+    <div class="button-container">
+        <div class="top-row">
+            <a href="devs.html"><button>About the Devs!</button></a>
+        </div>
+
+        <div class="bottom-row">
+            <a href="find.html"><button>Find The Object!</button></a>
+            <a href="rock.html"><button>Rock,Paper,Scissors!</button></a>
+            <a href="quiz.html"><button>The Carpenter Quiz!</button></a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
