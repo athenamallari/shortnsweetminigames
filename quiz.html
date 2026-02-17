@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>short & sweet minigames !</title>
+<div class="container-fluid">
+  <header>
+    <h1 style="font-family: Satisfy, serif; font-size: 48pt;">The Ultimate Carpenter Test</h1>
+    <p>It will be short.. and sweet</p>
+  </header>
+</div>
+<style>
+    body {
+  font-family: Verdana, sans-serif;
+  background-image: linear-gradient(to right, #ffb6c1, #efbbff);
+  justify-content: center;
+  padding-top: 40px;
+}
+header {
+  background-image: url("https://raw.githubusercontent.com/athenamallari/shortnsweetminigames/refs/heads/main/sabrina.jpg");
+  background-position: center;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  height: 2in;
+  border-radius: 15px;
+  padding: 1rem;
+  padding-top: 2rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-weight: 1000;
+  color: white;
+  font-size: large;
+}
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(135, 206, 235, 0.4);
+  z-index: -1;
+  border-radius: 15px;
+  box-shadow: 10px 10px 5px rgba(135, 206, 235, 0.4);
+}
+.card {
+  background-color: rgba(135, 206, 235, 0.8);
+  border-radius: 15px;
+  transition: background-color 0.2s;
+}
+.answer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.button-answer {
+  background-color: #ffd6e8;
+  border: 2px solid #ffb6c1;
+  border-radius: 15px;
+  padding: 10px;
+  font-weight: 700;
+  transition: transform 0.2s, background-color 0.2s;
+  color: #280137;
+}
+.button-answer:hover {
+  transform: scale(1.05);
+  background-color: #ffc2e0;
+}
+.button-answer:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.card.correct {
+  background-color: #c1e1c1;
+}
+.card.wrong {
+  background-color: #ffcccb;
+}
+</style>
+<script>
+    let score = 0;
+let answered = 0;
+const total = 3;
+
+function handleAnswer(button, isCorrect) {
+  const card = button.closest(".card");
+
+  if (card.classList.contains("correct") || card.classList.contains("wrong")) {
+    return;
+  }
+
+  if (isCorrect) {
+    card.classList.add("correct");
+    score++;
+  } else {
+    card.classList.add("wrong");
+  }
+
+  card.querySelectorAll("button").forEach((btn) => (btn.disabled = true));
+
+  answered++;
+
+  document.getElementById("score").innerText = score;
+
+  if (answered === total) {
+    document.getElementById("resetBtn").classList.remove("d-none");
+  }
+}
+
+function handleClick1(btn) {
+  handleAnswer(btn, btn.classList.contains("correct"));
+}
+
+function handleClick2(btn) {
+  handleAnswer(btn, btn.classList.contains("correct"));
+}
+
+function handleClick3(btn) {
+  handleAnswer(btn, btn.classList.contains("correct"));
+}
+
+function resetQuiz() {
+  score = 0;
+  answered = 0;
+
+  document.getElementById("score").innerText = "0";
+
+  document.querySelectorAll(".card").forEach((card) => {
+    card.classList.remove("correct", "wrong");
+    card.querySelectorAll("button").forEach((btn) => (btn.disabled = false));
+  });
+
+  document.getElementById("resetBtn").classList.add("d-none");
+}
+</script>
+<div class="container my-4 pt-2">
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="quiz">
+    <div class="col d-flex">
+      <div class="card h-100 px-3 py-3">
+        <p>1. What is the 7th track in Short n' Sweet?</p>
+        <div class="answer d-flex flex-column mt-auto">
+          <button class="button-answer correct" onclick="handleClick1(this)">A. Espresso</button>
+          <button class="button-answer" onclick="handleClick1(this)">B. Please Please Please</button>
+          <button class="button-answer" onclick="handleClick1(this)">C. Slim Pickins</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col d-flex">
+      <div class="card h-100 px-3 py-3">
+        <p class="question mb-2">2. Who did she collab with in Please Please Please Short n' Sweet Deluxe?</p>
+        <div class="answer d-flex flex-column mt-auto">
+          <button class="button-answer" onclick="handleClick2(this)">A. Elton John</button>
+          <button class="button-answer" onclick="handleClick2(this)">B. Taylor Swift</button>
+          <button class="button-answer correct" onclick="handleClick2(this)">C. Dolly Parton</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col d-flex">
+      <div class="card h-100 px-3 py-3">
+        <p class="question mb-2">3. Where did the Short n' Sweet tour end?</p>
+        <div class="answer d-flex flex-column mt-auto">
+          <button class="button-answer" onclick="handleClick3(this)">A. Seattle</button>
+          <button class="button-answer correct" onclick="handleClick3(this)">B. Los Angeles</button>
+          <button class="button-answer" onclick="handleClick3(this)">C. Boston</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="text-center mt-4">Score: <span id="score">0</span>/3</h3>
+
+  <div class="text-center"><button id="resetBtn" class="btn btn-secondary mt-3 d-none" onclick="resetQuiz()">Reset Quiz</button></div>
+</div>
+</div>

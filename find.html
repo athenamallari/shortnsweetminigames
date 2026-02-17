@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>short & sweet minigames !</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+<style>
+       body {
+  background-color: #ffabcf;
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-family: "Jua", sans-serif;
+  color: white;
+}
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 20px;
+}
+.image {
+    position: relative;
+}
+       #rect {
+            border: 5px solid white;
+            width: 800px;
+            height: 400px;
+        }
+    </style>
+    <script>
+      
+        function check(event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+
+ 
+          if (x > 403 && x < 453 && y > 262 && y < 312) {
+    alert("you found Sabrina's strawberry milk!"); document.getElementById('smilk').style.textDecoration = 'line-through';
+  } 
+          else if (x > 43 && x < 93 && y > 43 && y < 93) {
+    alert("you found Sabrina's candy jar!"); document.getElementById('kjar').style.textDecoration = 'line-through'; 
+  }
+          else if (x > 523 && x < 573 && y > 171 && y < 221) {
+    alert("you found Sabrina's flower vase!"); document.getElementById('fvase').style.textDecoration = 'line-through'; 
+  } 
+          else if (x > 103 && x < 153 && y > 103 && y < 153) {
+    alert("you found Sabrina's crown keychain!"); document.getElementById('crownk').style.textDecoration = 'line-through'; 
+  } 
+          else if (x > 264 && x < 314 && y > 99 && y < 149) {
+    alert("you found Sabrina's avocado plushie!"); document.getElementById('avop').style.textDecoration = 'line-through'; 
+  } 
+}
+      
+    </script>
+
+<h1 class="mt-4">Find The Objects In Sabrina Carpenter's Room !</h1>
+<p>Hurry!!!</p>
+
+<div class="game">
+<div class="image">
+    <img src="https://i.pinimg.com/1200x/ec/0b/d7/ec0bd76df017bad562b0d392715ad660.jpg" alt="" id="rect" onclick="check(event)" onmousemove="showCoords(event)" class="">
+    </img>
+</div>
+
+</div>
+
+<div class="things mt-5">
+<h2>things to find:</h2>
+<ul>
+  <li id="smilk">Sabrina's strawberry milk</li>
+  <li id="kjar">Sabrina's candy jar</li>
+  <li id="fvase">Sabrina's flower vase</li>
+  <li id="crownk">Sabrina's crown keychain</li>
+  <li id="avop">Sabrina's avocado plushie</li>
+</ul>
+  
+  
+  </div>
